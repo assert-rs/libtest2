@@ -3,6 +3,7 @@
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(feature = "serde", serde(rename_all = "snake_case"))]
 #[cfg_attr(feature = "serde", serde(tag = "event"))]
+#[non_exhaustive]
 pub enum Event {
     DiscoverStart(DiscoverStart),
     DiscoverCase(DiscoverCase),
@@ -82,6 +83,7 @@ impl From<RunComplete> for Event {
 #[cfg_attr(feature = "unstable-schema", derive(schemars::JsonSchema))]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(feature = "serde", serde(rename_all = "snake_case"))]
+#[non_exhaustive]
 pub struct DiscoverStart {
     #[cfg_attr(
         feature = "serde",
@@ -122,6 +124,7 @@ impl DiscoverStart {
 #[cfg_attr(feature = "unstable-schema", derive(schemars::JsonSchema))]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(feature = "serde", serde(rename_all = "snake_case"))]
+#[non_exhaustive]
 pub struct DiscoverCase {
     /// An identifier that is unique across the entire run
     pub name: String,
@@ -191,6 +194,7 @@ impl DiscoverCase {
 #[cfg_attr(feature = "unstable-schema", derive(schemars::JsonSchema))]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(feature = "serde", serde(rename_all = "snake_case"))]
+#[non_exhaustive]
 pub struct DiscoverComplete {
     #[cfg_attr(
         feature = "serde",
@@ -228,6 +232,7 @@ impl DiscoverComplete {
 #[cfg_attr(feature = "unstable-schema", derive(schemars::JsonSchema))]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(feature = "serde", serde(rename_all = "snake_case"))]
+#[non_exhaustive]
 pub struct RunStart {
     #[cfg_attr(
         feature = "serde",
@@ -265,6 +270,7 @@ impl RunStart {
 #[cfg_attr(feature = "unstable-schema", derive(schemars::JsonSchema))]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(feature = "serde", serde(rename_all = "snake_case"))]
+#[non_exhaustive]
 pub struct CaseStart {
     /// An identifier that is unique across the entire run
     pub name: String,
@@ -309,6 +315,7 @@ impl CaseStart {
 #[cfg_attr(feature = "unstable-schema", derive(schemars::JsonSchema))]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(feature = "serde", serde(rename_all = "snake_case"))]
+#[non_exhaustive]
 pub struct CaseMessage {
     /// An identifier that is unique across the entire run
     pub name: String,
@@ -371,6 +378,7 @@ impl CaseMessage {
 #[cfg_attr(feature = "unstable-schema", derive(schemars::JsonSchema))]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(feature = "serde", serde(rename_all = "snake_case"))]
+#[non_exhaustive]
 pub struct CaseComplete {
     /// An identifier that is unique across the entire run
     pub name: String,
@@ -415,6 +423,7 @@ impl CaseComplete {
 #[cfg_attr(feature = "unstable-schema", derive(schemars::JsonSchema))]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(feature = "serde", serde(rename_all = "snake_case"))]
+#[non_exhaustive]
 pub struct RunComplete {
     #[cfg_attr(
         feature = "serde",
