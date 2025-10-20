@@ -46,6 +46,11 @@ pub mod _private {
     pub use crate::_main_parse as main_parse;
     pub use crate::_test_parse as test_parse;
     pub use crate::case::DynCase;
+
+    /// Static variable used to collect functions annotated with `#[libtest2::test]`
+    ///
+    /// Values are pushed to this by the [`crate::macros::test_parse`](`test_parse`) macro
+    pub static TESTS: DistributedList<DynCase> = DistributedList::root();
 }
 
 pub use case::main;
@@ -59,3 +64,10 @@ pub use libtest2_proc_macro::test;
 #[doc = include_str!("../README.md")]
 #[cfg(doctest)]
 pub struct ReadmeDoctests;
+
+/// Get an iterator to all collected test functions
+///
+/// Functions can be marked for collection by annotating them with the `#[libtest2::test]` macro
+pub fn get_tests() -> impl Iterator<Item = case::DynCase> {
+    _private::TESTS.iter().copied()
+}

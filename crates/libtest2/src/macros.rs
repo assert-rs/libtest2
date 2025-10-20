@@ -1,13 +1,11 @@
 #[macro_export]
 macro_rules! _main_parse {
     (#[main] fn main $($item:tt)*) => {
-        static TESTS: $crate::_private::DistributedList<$crate::_private::DynCase> = $crate::_private::DistributedList::root();
-
         fn main() {
             fn inner $($item)*
 
             inner();
-            $crate::main(TESTS.iter().copied());
+            $crate::main($crate::get_tests());
         }
     };
 }
@@ -21,7 +19,7 @@ macro_rules! _test_parse {
 
         impl $crate::_private::Case for $name {
             fn name(&self) -> &str {
-                $crate::_private::push!(crate::TESTS, _: $crate::_private::DynCase = $crate::_private::DynCase(&$name));
+                $crate::_private::push!($crate::_private::TESTS, _: $crate::_private::DynCase = $crate::_private::DynCase(&$name));
 
                 stringify!($name)
             }
