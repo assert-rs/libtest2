@@ -15,6 +15,44 @@ pub trait Case: Send + Sync + 'static {
     fn run(&self, state: &TestContext) -> Result<(), RunError>;
 }
 
+impl Case for Box<dyn Case> {
+    fn name(&self) -> &str {
+        self.as_ref().name()
+    }
+    fn kind(&self) -> TestKind {
+        self.as_ref().kind()
+    }
+    fn source(&self) -> Option<&Source> {
+        self.as_ref().source()
+    }
+    fn exclusive(&self, state: &TestContext) -> bool {
+        self.as_ref().exclusive(state)
+    }
+
+    fn run(&self, state: &TestContext) -> Result<(), RunError> {
+        self.as_ref().run(state)
+    }
+}
+
+impl Case for std::sync::Arc<dyn Case> {
+    fn name(&self) -> &str {
+        self.as_ref().name()
+    }
+    fn kind(&self) -> TestKind {
+        self.as_ref().kind()
+    }
+    fn source(&self) -> Option<&Source> {
+        self.as_ref().source()
+    }
+    fn exclusive(&self, state: &TestContext) -> bool {
+        self.as_ref().exclusive(state)
+    }
+
+    fn run(&self, state: &TestContext) -> Result<(), RunError> {
+        self.as_ref().run(state)
+    }
+}
+
 /// Type of the test according to the [rust book](https://doc.rust-lang.org/cargo/guide/tests.html)
 /// conventions.
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Hash)]
