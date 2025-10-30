@@ -33,7 +33,7 @@ macro_rules! _test_parse {
         #[allow(non_camel_case_types)]
         struct $name;
 
-        impl $crate::_private::Case for $name {
+        impl $crate::Case for $name {
             fn name(&self) -> &str {
                 $crate::_private::push!(crate::TESTS, _: $crate::_private::DynCase = $crate::_private::DynCase(&$name));
 

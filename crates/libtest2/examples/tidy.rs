@@ -1,3 +1,4 @@
+use libtest2::Case;
 use libtest2::FnCase;
 use libtest2::RunError;
 use libtest2::RunResult;
@@ -23,8 +24,8 @@ fn main() -> std::io::Result<()> {
 
 /// Creates one test for each `.rs` file in the current directory or
 /// sub-directories of the current directory.
-fn collect_tests() -> std::io::Result<Vec<FnCase>> {
-    fn visit_dir(path: &std::path::Path, tests: &mut Vec<FnCase>) -> std::io::Result<()> {
+fn collect_tests() -> std::io::Result<Vec<Box<dyn Case>>> {
+    fn visit_dir(path: &std::path::Path, tests: &mut Vec<Box<dyn Case>>) -> std::io::Result<()> {
         let current_dir = std::env::current_dir()?;
         for entry in std::fs::read_dir(path)? {
             let entry = entry?;
@@ -45,7 +46,7 @@ fn collect_tests() -> std::io::Result<Vec<FnCase>> {
                     .into_owned();
 
                     let test = FnCase::test(name, move |_| check_file(&path));
-                    tests.push(test);
+                    tests.push(Box::new(test));
                 }
             } else if file_type.is_dir() {
                 // Handle directories
