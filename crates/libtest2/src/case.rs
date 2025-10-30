@@ -28,7 +28,7 @@ impl Case for DynCase {
 }
 
 pub struct FnCase<R> {
-    name: String,
+    name: std::borrow::Cow<'static, str>,
     runner: R,
 }
 
@@ -36,11 +36,8 @@ impl<R> FnCase<R>
 where
     R: Fn(&TestContext) -> RunResult + Send + Sync + 'static,
 {
-    pub fn test(name: impl Into<String>, runner: R) -> Self {
-        Self {
-            name: name.into(),
-            runner,
-        }
+    pub const fn test(name: std::borrow::Cow<'static, str>, runner: R) -> Self {
+        Self { name, runner }
     }
 }
 

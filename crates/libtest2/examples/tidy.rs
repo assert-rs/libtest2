@@ -1,3 +1,5 @@
+use std::borrow::Cow;
+
 use libtest2::Case;
 use libtest2::FnCase;
 use libtest2::RunError;
@@ -45,7 +47,7 @@ fn collect_tests() -> std::io::Result<Vec<Box<dyn Case>>> {
                     .to_string_lossy()
                     .into_owned();
 
-                    let test = FnCase::test(name, move |_| check_file(&path));
+                    let test = FnCase::test(Cow::Owned(name), move |_| check_file(&path));
                     tests.push(Box::new(test));
                 }
             } else if file_type.is_dir() {
