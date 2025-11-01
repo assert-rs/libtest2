@@ -27,25 +27,24 @@ impl Case for DynCase {
     }
 }
 
-pub struct FnCase {
-    name: String,
-    #[allow(clippy::type_complexity)]
-    runner: Box<dyn Fn(&TestContext) -> RunResult + Send + Sync>,
+pub struct FnCase<R> {
+    name: std::borrow::Cow<'static, str>,
+    runner: R,
 }
 
-impl FnCase {
-    pub fn test(
-        name: impl Into<String>,
-        runner: impl Fn(&TestContext) -> RunResult + Send + Sync + 'static,
-    ) -> Self {
-        Self {
-            name: name.into(),
-            runner: Box::new(runner),
-        }
+impl<R> FnCase<R>
+where
+    R: Fn(&TestContext) -> RunResult + Send + Sync + 'static,
+{
+    pub const fn test(name: std::borrow::Cow<'static, str>, runner: R) -> Self {
+        Self { name, runner }
     }
 }
 
-impl Case for FnCase {
+impl<R> Case for FnCase<R>
+where
+    R: Fn(&TestContext) -> RunResult + Send + Sync + 'static,
+{
     fn name(&self) -> &str {
         &self.name
     }
