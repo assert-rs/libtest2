@@ -7,8 +7,17 @@ error[E0277]: the trait bound `i32: IntoRunResult` is not satisfied
   | the trait `IntoRunResult` is not implemented for `i32`
   | required by a bound introduced by this call
   |
-  = help: the following other types implement trait `IntoRunResult`:
-            ()
-            Result<(), E>
-            Result<(), RunError>
+help: the following other types implement trait `IntoRunResult`
+ --> $WORKSPACE/crates/libtest2-harness/src/error.rs
+  |
+  |   impl IntoRunResult for () {
+  |   ^^^^^^^^^^^^^^^^^^^^^^^^^ `()`
+...
+  |   impl IntoRunResult for RunResult {
+  |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ `Result<(), RunError>`
+...
+  | / impl<E> IntoRunResult for Result<(), E>
+  | | where
+  | |     E: std::error::Error + Send + Sync + 'static,
+  | |_________________________________________________^ `Result<(), E>`
   = note: this error originates in the macro `$crate::_private::test_parse` which comes from the expansion of the attribute macro `libtest2::test` (in Nightly builds, run with -Z macro-backtrace for more info)

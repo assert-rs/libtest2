@@ -7,9 +7,16 @@ error[E0277]: the trait bound `Result<i32, std::io::Error>: IntoRunResult` is no
   | the trait `IntoRunResult` is not implemented for `Result<i32, std::io::Error>`
   | required by a bound introduced by this call
   |
-  = help: the following other types implement trait `IntoRunResult`:
-            Result<(), E>
-            Result<(), RunError>
+help: the following other types implement trait `IntoRunResult`
+ --> $WORKSPACE/crates/libtest2-harness/src/error.rs
+  |
+  |   impl IntoRunResult for RunResult {
+  |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ `Result<(), RunError>`
+...
+  | / impl<E> IntoRunResult for Result<(), E>
+  | | where
+  | |     E: std::error::Error + Send + Sync + 'static,
+  | |_________________________________________________^ `Result<(), E>`
   = note: this error originates in the macro `$crate::_private::test_parse` which comes from the expansion of the attribute macro `libtest2::test` (in Nightly builds, run with -Z macro-backtrace for more info)
 
 error[E0277]: the trait bound `String: std::error::Error` is not satisfied
@@ -21,8 +28,15 @@ error[E0277]: the trait bound `String: std::error::Error` is not satisfied
   | the trait `std::error::Error` is not implemented for `String`
   | required by a bound introduced by this call
   |
-  = help: the following other types implement trait `IntoRunResult`:
-            Result<(), E>
-            Result<(), RunError>
+help: the following other types implement trait `IntoRunResult`
+ --> $WORKSPACE/crates/libtest2-harness/src/error.rs
+  |
+  |   impl IntoRunResult for RunResult {
+  |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ `Result<(), RunError>`
+...
+  | / impl<E> IntoRunResult for Result<(), E>
+  | | where
+  | |     E: std::error::Error + Send + Sync + 'static,
+  | |_________________________________________________^ `Result<(), E>`
   = note: required for `Result<(), String>` to implement `IntoRunResult`
   = note: this error originates in the macro `$crate::_private::test_parse` which comes from the expansion of the attribute macro `libtest2::test` (in Nightly builds, run with -Z macro-backtrace for more info)
