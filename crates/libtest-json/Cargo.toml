@@ -36,7 +36,7 @@ schemars = { version = "1.2.1", features = ["preserve_order", "semver1"], option
 json-write = { version = "0.0.2", path = "../json-write", optional = true }
 
 [dev-dependencies]
-snapbox = "0.6.24"
+snapbox = "1.0.1"
 serde_json = "1.0.149"
 
 [lints]

@@ -38,7 +38,7 @@ dunce = "1.0.5"
 escargot = "0.5.15"
 once_cell_polyfill = "1.70.2"
 pathdiff = "0.2.3"
-snapbox = { version = "0.6.24", features = ["json"] }
+snapbox = { version = "1.0.1", features = ["json"] }
 trybuild = "1.0.111"
 
 [lints]
