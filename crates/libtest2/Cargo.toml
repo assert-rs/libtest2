@@ -34,11 +34,11 @@ libtest2-harness = { version = "0.0.3", path = "../libtest2-harness" }
 libtest2-proc-macro = { version = "0.0.3", path = "../libtest2-proc-macro" }
 
 [dev-dependencies]
-dunce = "1.0.4"
-escargot = "0.5.8"
-once_cell_polyfill = "1.56.0"
-pathdiff = "0.2.1"
-snapbox = { version = "0.6.0", features = ["json"] }
+dunce = "1.0.5"
+escargot = "0.5.15"
+once_cell_polyfill = "1.70.2"
+pathdiff = "0.2.3"
+snapbox = { version = "1.0.1", features = ["json"] }
 trybuild = "1.0.111"
 
 [lints]

@@ -33,10 +33,10 @@ alloc = []
 [dependencies]
 
 [dev-dependencies]
-proptest = "1.6.0"
-serde = { version = "1.0.160", features = ["derive"] }
-serde_json = { version = "1.0.96" }
-snapbox = "0.6.0"
+proptest = "1.8.0"
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = { version = "1.0.149" }
+snapbox = "1.0.1"
 
 [lints]
 workspace = true
