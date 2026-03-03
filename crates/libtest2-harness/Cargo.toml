@@ -32,8 +32,8 @@ threads = []
 lexarg-parser = { version = "0.0.2", path = "../lexarg-parser" }
 lexarg-error = { version = "0.0.2", path = "../lexarg-error" }
 libtest-lexarg = { version = "0.0.3", path = "../libtest-lexarg" }
-anstream = { version = "0.6.4", optional = true }
-anstyle = { version = "1.0.10", optional = true }
+anstream = { version = "0.6.21", optional = true }
+anstyle = { version = "1.0.13", optional = true }
 libtest-json = { version = "0.0.2", path = "../libtest-json", features = ["json"] }
 
 [dev-dependencies]

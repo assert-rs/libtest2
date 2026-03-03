@@ -30,14 +30,14 @@ json = ["dep:json-write"]
 unstable-schema = ["serde", "dep:schemars", "dep:serde_json"]
 
 [dependencies]
-serde = { version = "1.0.160", features = ["derive"], optional = true }
-serde_json = { version = "1.0.96", optional = true }
-schemars = { version = "1.0.0-alpha.17", features = ["preserve_order", "semver1"], optional = true }
+serde = { version = "1.0.228", features = ["derive"], optional = true }
+serde_json = { version = "1.0.149", optional = true }
+schemars = { version = "1.2.1", features = ["preserve_order", "semver1"], optional = true }
 json-write = { version = "0.0.2", path = "../json-write", optional = true }
 
 [dev-dependencies]
-snapbox = "0.6.21"
-serde_json = "1.0.96"
+snapbox = "0.6.24"
+serde_json = "1.0.149"
 
 [lints]
 workspace = true
