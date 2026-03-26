@@ -159,6 +159,40 @@ Endorsed in [pytest's docs](https://docs.pytest.org/en/latest/deprecations.html#
 
 [subunit](https://github.com/testing-cabal/subunit) ([rust impl](https://github.com/mtreinish/subunit-rust))
 
+#### JUnit XML
+
+[testmoapp/junitxml](https://github.com/testmoapp/junitxml)
+- Non-streaming format
+- More work to generate properly, possibly impacting compile times of custom test harnesses
+- No specified format; requires experimenting with supported consumers
+- Lacks per-case timestamps
+
+Example:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites time="15.682687">
+    <testsuite name="Tests.Registration" time="6.605871">
+        <testcase name="testCase1" classname="Tests.Registration" time="2.113871" />
+        <testcase name="testCase2" classname="Tests.Registration" time="1.051" />
+        <testcase name="testCase3" classname="Tests.Registration" time="3.441" />
+    </testsuite>
+    <testsuite name="Tests.Authentication" time="9.076816">
+        <testsuite name="Tests.Authentication.Login" time="4.356">
+            <testcase name="testCase4" classname="Tests.Authentication.Login" time="2.244" />
+            <testcase name="testCase5" classname="Tests.Authentication.Login" time="0.781" />
+            <testcase name="testCase6" classname="Tests.Authentication.Login" time="1.331" />
+        </testsuite>
+        <testcase name="testCase7" classname="Tests.Authentication" time="2.508" />
+        <testcase name="testCase8" classname="Tests.Authentication" time="1.230816" />
+        <testcase name="testCase9" classname="Tests.Authentication" time="0.982">
+            <failure message="Assertion error message" type="AssertionError">
+                <!-- Call stack printed here -->
+            </failure>            
+        </testcase>
+    </testsuite>
+</testsuites>
+```
+
 ## lexarg
 
 Goal: provide an API-stable CLI parser for inclusion in APIs for plugin-specific CLI args
