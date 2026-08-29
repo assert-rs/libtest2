@@ -137,6 +137,7 @@ impl super::Notifier for Summary {
             Event::RunComplete(inner) => {
                 self.elapsed_s = inner.elapsed_s;
             }
+            _ => {}
         }
         Ok(())
     }
