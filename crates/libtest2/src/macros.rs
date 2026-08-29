@@ -103,37 +103,38 @@ macro_rules! _test_parse {
 
     // End result
     (break: name=$name:ident body=[($($params:tt)*) $($item:tt)*] $(ignore=$ignore:tt)? $(should_panic=$should_panic:tt)?) => {
-        #[allow(non_camel_case_types)]
-        struct $name;
+        fn $name($($params)*) $($item)*
 
-        impl $crate::Case for $name {
-            fn name(&self) -> &str {
-                $crate::_private::push!(crate::TESTS, _: $crate::_private::DynCase = $crate::_private::DynCase(&$name));
+        const _: () = {
+            struct Test;
 
-                const FULL_PATH: &str = concat!(std::module_path!(), "::", stringify!($name));
-                let i = FULL_PATH.find("::").expect("we have inserted this in the line above so it must be there");
-                &FULL_PATH[(i+2)..]
-            }
-            fn kind(&self) -> $crate::_private::TestKind {
-                Default::default()
-            }
-            fn source(&self) -> Option<&$crate::_private::Source> {
-                None
-            }
-            fn exclusive(&self, _: &$crate::TestContext) -> bool {
-                false
-            }
+            impl $crate::Case for Test {
+                fn name(&self) -> &str {
+                    $crate::_private::push!(crate::TESTS, _: $crate::_private::DynCase = $crate::_private::DynCase(&Test));
 
-            fn run(&self, context: &$crate::TestContext) -> $crate::RunResult {
-                fn run($($params)*) $($item)*
+                    const FULL_PATH: &str = concat!(std::module_path!(), "::", stringify!($name));
+                    let i = FULL_PATH.find("::").expect("we have inserted this in the line above so it must be there");
+                    &FULL_PATH[(i+2)..]
+                }
+                fn kind(&self) -> $crate::_private::TestKind {
+                    Default::default()
+                }
+                fn source(&self) -> Option<&$crate::_private::Source> {
+                    None
+                }
+                fn exclusive(&self, _: &$crate::TestContext) -> bool {
+                    false
+                }
 
-                $crate::_private::parse_ignore!(context, $($ignore)?);
+                fn run(&self, context: &$crate::TestContext) -> $crate::RunResult {
+                    $crate::_private::parse_ignore!(context, $($ignore)?);
 
-                use $crate::IntoRunResult;
-                let result = $crate::_private::run_test!($crate::_private::test_expr!(context, [$($params)*]), $($should_panic)?);
-                IntoRunResult::into_run_result(result)
+                    use $crate::IntoRunResult;
+                    let result = $crate::_private::run_test!($crate::_private::test_expr!($name, context, [$($params)*]), $($should_panic)?);
+                    IntoRunResult::into_run_result(result)
+                }
             }
-        }
+        };
     };
 }
 
@@ -152,11 +153,11 @@ macro_rules! _parse_ignore {
 #[macro_export]
 #[doc(hidden)]
 macro_rules! _test_expr {
-    ($context:expr, []) => {
-        run()
+    ($name:ident, $context:expr, []) => {
+        $name()
     };
-    ($context:expr, [$($params:tt)+]) => {
-        run($context)
+    ($name:ident, $context:expr, [$($params:tt)+]) => {
+        $name($context)
     };
 }
 
