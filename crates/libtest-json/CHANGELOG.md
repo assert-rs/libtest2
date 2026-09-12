@@ -22,6 +22,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ## [0.0.1] - 2025-07-18
 
 <!-- next-url -->
-[Unreleased]: https://github.com/epage/pytest-rs/compare/libtest-json-v0.0.2...HEAD
-[0.0.2]: https://github.com/epage/pytest-rs/compare/libtest-json-v0.0.1...libtest-json-v0.0.2
-[0.0.1]: https://github.com/rust-cli/argfile/compare/c96ef27899b410f9f154183989d4ccf60af27da6...libtest-json-v0.0.1
+[Unreleased]: https://github.com/assert-rs/libtest2/compare/libtest-json-v0.0.2...HEAD
+[0.0.2]: https://github.com/assert-rs/libtest2/compare/libtest-json-v0.0.1...libtest-json-v0.0.2
+[0.0.1]: https://github.com/assert-rs/libtest2/compare/c96ef27899b410f9f154183989d4ccf60af27da6...libtest-json-v0.0.1
