@@ -32,7 +32,7 @@ struct Results<N: core::fmt::Debug> {
 #[test]
 fn zero() {
     t(
-        0.0f64,
+        0.0_f64,
         str![[r#"
 Results {
     value: 0.0,
@@ -47,7 +47,7 @@ Results {
 #[test]
 fn neg_zero() {
     t(
-        -0.0f64,
+        -0.0_f64,
         str![[r#"
 Results {
     value: -0.0,

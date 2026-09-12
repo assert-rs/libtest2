@@ -1,3 +1,7 @@
+#![cfg_attr(docsrs, feature(doc_cfg))]
+#![warn(clippy::print_stderr)]
+#![warn(clippy::print_stdout)]
+
 mod list;
 
 pub use list::DistributedList;
@@ -83,3 +87,7 @@ macro_rules! push {
         };
     };
 }
+
+#[doc = include_str!("../README.md")]
+#[cfg(doctest)]
+pub struct ReadmeDoctests;

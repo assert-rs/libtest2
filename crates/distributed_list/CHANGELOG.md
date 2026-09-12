@@ -8,4 +8,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ## [Unreleased] - ReleaseDate
 
 <!-- next-url -->
-[Unreleased]: https://github.com/epage/pytest-rs/compare/8d68adbaefcd320bc8785d23bcb050c9802fd47a...HEAD
+[Unreleased]: https://github.com/assert-rs/libtest2/compare/8d68adbaefcd320bc8785d23bcb050c9802fd47a...HEAD

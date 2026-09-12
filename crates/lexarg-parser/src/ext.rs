@@ -59,7 +59,7 @@ impl OsStrExt for OsStr {
             // SAFETY:
             // - This came from `as_encoded_bytes`
             // - Since `prefix` is `&str`, any split will be along UTF-8 boundary
-            unsafe { OsStr::from_encoded_bytes_unchecked(s) }
+            unsafe { Self::from_encoded_bytes_unchecked(s) }
         })
     }
     fn starts_with(&self, prefix: &str) -> bool {
@@ -86,8 +86,8 @@ impl OsStrExt for OsStr {
         // - Since `needle` is `&str`, any split will be along UTF-8 boundary
         unsafe {
             Some((
-                OsStr::from_encoded_bytes_unchecked(first),
-                OsStr::from_encoded_bytes_unchecked(second),
+                Self::from_encoded_bytes_unchecked(first),
+                Self::from_encoded_bytes_unchecked(second),
             ))
         }
     }
@@ -132,6 +132,7 @@ impl<'s> Iterator for Split<'s, '_> {
 ///
 /// `index` must be at a valid UTF-8 boundary
 pub(crate) unsafe fn split_at(os: &OsStr, index: usize) -> (&OsStr, &OsStr) {
+    // SAFETY: `index` must be at a valid UTF-8 boundary
     unsafe {
         let bytes = os.as_encoded_bytes();
         let (first, second) = bytes.split_at(index);

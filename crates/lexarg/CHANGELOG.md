@@ -14,6 +14,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ## [0.0.1] - 2025-07-18
 
 <!-- next-url -->
-[Unreleased]: https://github.com/epage/pytest-rs/compare/lexarg-v0.0.2...HEAD
-[0.0.2]: https://github.com/epage/pytest-rs/compare/lexarg-v0.0.1...lexarg-v0.0.2
-[0.0.1]: https://github.com/rust-cli/argfile/compare/716170eaa853ddf3032baa9b107eb3e44d6a4124...lexarg-v0.0.1
+[Unreleased]: https://github.com/assert-rs/libtest2/compare/lexarg-v0.0.2...HEAD
+[0.0.2]: https://github.com/assert-rs/libtest2/compare/lexarg-v0.0.1...lexarg-v0.0.2
+[0.0.1]: https://github.com/assert-rs/libtest2/compare/716170eaa853ddf3032baa9b107eb3e44d6a4124...lexarg-v0.0.1
