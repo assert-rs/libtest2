@@ -60,8 +60,6 @@ impl<T> DistributedList<T> {
 
     /// Inserts `other` to the front of the list.
     ///
-    /// # Safety
-    ///
     /// This function must be safe to call before `main`.
     #[inline]
     pub fn push(&'static self, other: &'static Self) {
@@ -71,7 +69,7 @@ impl<T> DistributedList<T> {
             // simply store `self.next` there.
             other.next.store(old_next, AtomicOrdering::Release);
 
-            // SAFETY: The content of `other` can already be seen, so we don't
+            // NOTE: The content of `other` can already be seen, so we don't
             // need to strongly order reads into it.
             let other = other as *const Self as *mut Self;
             match self.next.compare_exchange_weak(

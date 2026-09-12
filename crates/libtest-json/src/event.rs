@@ -520,7 +520,7 @@ impl std::str::FromStr for Elapsed {
 
     fn from_str(src: &str) -> Result<Self, Self::Err> {
         let secs = src.parse()?;
-        Ok(Elapsed(std::time::Duration::from_secs_f64(secs)))
+        Ok(Self(std::time::Duration::from_secs_f64(secs)))
     }
 }
 
