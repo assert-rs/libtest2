@@ -2,7 +2,7 @@
 
 > An experimental replacement for the core of libtest
 
-[![Documentation](https://img.shields.io/badge/docs-master-blue.svg)][Documentation]
+[![Documentation](https://img.shields.io/badge/docs-main-blue.svg)][Documentation]
 ![License](https://img.shields.io/crates/l/libtest2-harness.svg)
 [![Crates Status](https://img.shields.io/crates/v/libtest2-harness.svg)](https://crates.io/crates/libtest2-harness)
 

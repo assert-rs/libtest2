@@ -2,7 +2,7 @@
 
 > Argument error type for use with lexarg
 
-[![Documentation](https://img.shields.io/badge/docs-master-blue.svg)][Documentation]
+[![Documentation](https://img.shields.io/badge/docs-main-blue.svg)][Documentation]
 ![License](https://img.shields.io/crates/l/lexarg-error.svg)
 [![Crates Status](https://img.shields.io/crates/v/lexarg-error.svg)](https://crates.io/crates/lexarg-error)
 

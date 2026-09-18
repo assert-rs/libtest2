@@ -2,7 +2,7 @@
 
 > Register and iterate through static elements
 
-[![Documentation](https://img.shields.io/badge/docs-master-blue.svg)][Documentation]
+[![Documentation](https://img.shields.io/badge/docs-main-blue.svg)][Documentation]
 ![License](https://img.shields.io/crates/l/distributed-list.svg)
 [![Crates Status](https://img.shields.io/crates/v/distributed-list.svg)](https://crates.io/crates/distributed-list)
 
