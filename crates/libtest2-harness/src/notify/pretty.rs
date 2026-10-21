@@ -72,6 +72,7 @@ impl<W: std::io::Write> super::Notifier for PrettyRunNotifier<W> {
             Event::RunComplete(_) => {
                 self.summary.write_complete(&mut self.writer)?;
             }
+            _ => {}
         }
         Ok(())
     }

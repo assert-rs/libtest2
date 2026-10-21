@@ -38,6 +38,7 @@ impl<W: std::io::Write> super::Notifier for TerseListNotifier<W> {
             Event::CaseMessage(_) => {}
             Event::CaseComplete(_) => {}
             Event::RunComplete(_) => {}
+            _ => {}
         }
         Ok(())
     }
@@ -83,6 +84,7 @@ impl<W: std::io::Write> super::Notifier for TerseRunNotifier<W> {
             Event::RunComplete(_) => {
                 self.summary.write_complete(&mut self.writer)?;
             }
+            _ => {}
         }
         Ok(())
     }
