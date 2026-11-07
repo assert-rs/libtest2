@@ -4,7 +4,7 @@
 
 use std::iter::FromIterator;
 
-use proc_macro::{Delimiter, Group, Ident, Punct, Spacing, Span, TokenStream, TokenTree};
+use proc_macro::{Delimiter, Group, Ident, Literal, Punct, Spacing, Span, TokenStream, TokenTree};
 
 #[allow(missing_docs)]
 #[proc_macro_attribute]
@@ -16,6 +16,50 @@ pub fn test(attribute: TokenStream, item: TokenStream) -> TokenStream {
 #[proc_macro_attribute]
 pub fn main(attribute: TokenStream, item: TokenStream) -> TokenStream {
     generate("main", "libtest2", attribute, item)
+}
+
+/// Expands to `(file!(), line!(), column!(), <name length in chars>)` for a test's name
+#[doc(hidden)]
+#[proc_macro]
+pub fn _source(input: TokenStream) -> TokenStream {
+    let mut input = input.into_iter();
+    let name = match (input.next(), input.next()) {
+        (Some(TokenTree::Ident(name)), None) => name,
+        _ => panic!("expected the test function's name"),
+    };
+
+    // `line!()`/`column!()` report where they are invoked, so every token takes the name's span
+    // to point at the `fn` name instead of the `#[test]` attribute
+    let span = name.span();
+    let punct = |ch, spacing| {
+        let mut punct = Punct::new(ch, spacing);
+        punct.set_span(span);
+        TokenTree::Punct(punct)
+    };
+
+    let mut fields = TokenStream::new();
+    for builtin in ["file", "line", "column"] {
+        let mut args = Group::new(Delimiter::Parenthesis, TokenStream::new());
+        args.set_span(span);
+        fields.extend([
+            punct(':', Spacing::Joint),
+            punct(':', Spacing::Alone),
+            TokenTree::Ident(Ident::new("core", span)),
+            punct(':', Spacing::Joint),
+            punct(':', Spacing::Alone),
+            TokenTree::Ident(Ident::new(builtin, span)),
+            punct('!', Spacing::Alone),
+            TokenTree::Group(args),
+            punct(',', Spacing::Alone),
+        ]);
+    }
+    let mut len = Literal::usize_suffixed(name.to_string().chars().count());
+    len.set_span(span);
+    fields.extend([TokenTree::Literal(len)]);
+
+    let mut tuple = Group::new(Delimiter::Parenthesis, fields);
+    tuple.set_span(span);
+    TokenStream::from_iter([TokenTree::Group(tuple)])
 }
 
 /// Generates the equivalent of this Rust code as a `TokenStream`:

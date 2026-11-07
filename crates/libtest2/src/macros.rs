@@ -118,7 +118,17 @@ macro_rules! _test_parse {
                 Default::default()
             }
             fn source(&self) -> Option<&$crate::_private::Source> {
-                None
+                static SOURCE: ::std::sync::OnceLock<$crate::_private::Source> = ::std::sync::OnceLock::new();
+                Some(SOURCE.get_or_init(|| {
+                    let (file, line, col, len) = $crate::_private::source!($name);
+                    $crate::_private::Source::Rust {
+                        source_file: ::std::path::PathBuf::from(file),
+                        start_line: line as usize,
+                        start_col: col as usize,
+                        end_line: line as usize,
+                        end_col: col as usize + len,
+                    }
+                }))
             }
             fn exclusive(&self, _: &$crate::TestContext) -> bool {
                 false

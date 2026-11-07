@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+### Features
+
+- Report `Case::source` in `discover_case`
+
 ## [0.0.3] - 2025-09-18
 
 ### Fixes

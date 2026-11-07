@@ -1,6 +1,6 @@
 use libtest_lexarg::OutputFormat;
 
-use crate::{cli, notify, Case, RunError, RunMode, TestContext};
+use crate::{cli, notify, Case, RunError, RunMode, Source, TestContext};
 
 pub trait HarnessState: sealed::_HarnessState_is_Sealed {}
 
@@ -106,6 +106,7 @@ impl Harness<StateParsed> {
             self.state.notifier.notify(
                 notify::event::DiscoverCase {
                     name: case.name().to_owned(),
+                    source: case.source().map(notify_source),
                     mode: RunMode::Test,
                     selected,
                     elapsed_s: Some(notify::Elapsed(self.state.start.elapsed())),
@@ -290,6 +291,30 @@ fn matches_filter(case: &dyn Case, filter: &str, opts: &libtest_lexarg::TestOpts
     match opts.filter_exact {
         true => test_name == filter,
         false => test_name.contains(filter),
+    }
+}
+
+fn notify_source(source: &Source) -> notify::event::Source {
+    match source {
+        Source::Rust {
+            source_file,
+            start_line,
+            start_col,
+            end_line,
+            end_col,
+        } => notify::event::Source {
+            path: source_file.to_string_lossy().into_owned(),
+            lines: Some(notify::event::LineSpan {
+                start_line: *start_line,
+                start_col: *start_col,
+                end_line: *end_line,
+                end_col: *end_col,
+            }),
+        },
+        Source::Path(path) => notify::event::Source {
+            path: path.to_string_lossy().into_owned(),
+            lines: None,
+        },
     }
 }
 
