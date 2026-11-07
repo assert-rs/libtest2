@@ -127,6 +127,39 @@
         }
       }
     },
+    "Source": {
+      "description": "Where a case comes from",
+      "type": "object",
+      "properties": {
+        "path": {
+          "description": "The file as reported by the compiler (`file!()`) or by the code that built the case",
+          "type": "string"
+        },
+        "start_line": {
+          "type": "integer",
+          "format": "uint",
+          "minimum": 0
+        },
+        "start_col": {
+          "type": "integer",
+          "format": "uint",
+          "minimum": 0
+        },
+        "end_line": {
+          "type": "integer",
+          "format": "uint",
+          "minimum": 0
+        },
+        "end_col": {
+          "type": "integer",
+          "format": "uint",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "path"
+      ]
+    },
     "RunMode": {
       "type": "string",
       "enum": [
@@ -141,6 +174,16 @@
         "name": {
           "description": "An identifier that is unique across the entire run",
           "type": "string"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Source"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "mode": {
           "$ref": "#/$defs/RunMode"

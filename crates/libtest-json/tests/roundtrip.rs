@@ -34,6 +34,7 @@ fn discover_case() {
     t(
         libtest_json::event::DiscoverCase {
             name: "Hello\tworld!".to_owned(),
+            source: None,
             mode: libtest_json::RunMode::Test,
             selected: true,
             elapsed_s: None,
@@ -44,12 +45,50 @@ fn discover_case() {
     t(
         libtest_json::event::DiscoverCase {
             name: "Hello\tworld!".to_owned(),
+            source: None,
             mode: libtest_json::RunMode::Bench,
             selected: false,
             elapsed_s: Some(libtest_json::Elapsed(Default::default())),
         },
         str![[
             r#"{"event":"discover_case","name":"Hello\tworld!","mode":"bench","selected":false,"elapsed_s":"0"}"#
+        ]],
+    );
+
+    t(
+        libtest_json::event::DiscoverCase {
+            name: "Hello\tworld!".to_owned(),
+            source: Some(libtest_json::event::Source {
+                path: "src/lib.rs".to_owned(),
+                lines: Some(libtest_json::event::LineSpan {
+                    start_line: 11,
+                    start_col: 4,
+                    end_line: 11,
+                    end_col: 14,
+                }),
+            }),
+            mode: libtest_json::RunMode::Test,
+            selected: true,
+            elapsed_s: None,
+        },
+        str![[
+            r#"{"event":"discover_case","name":"Hello\tworld!","source":{"path":"src/lib.rs","start_line":11,"start_col":4,"end_line":11,"end_col":14}}"#
+        ]],
+    );
+
+    t(
+        libtest_json::event::DiscoverCase {
+            name: "Hello\tworld!".to_owned(),
+            source: Some(libtest_json::event::Source {
+                path: "tests/fixtures/a.toml".to_owned(),
+                lines: None,
+            }),
+            mode: libtest_json::RunMode::Test,
+            selected: true,
+            elapsed_s: None,
+        },
+        str![[
+            r#"{"event":"discover_case","name":"Hello\tworld!","source":{"path":"tests/fixtures/a.toml"}}"#
         ]],
     );
 }
