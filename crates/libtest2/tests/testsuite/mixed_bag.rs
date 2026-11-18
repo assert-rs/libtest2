@@ -936,58 +936,135 @@ fn json_list() {
     "elapsed_s": "[..]",
     "event": "discover_case",
     "name": "cfg_in",
-    "selected": false
+    "selected": false,
+    "source": {
+      "end_col": 10,
+      "end_line": 61,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 61
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
     "name": "custom_error",
-    "selected": false
+    "selected": false,
+    "source": {
+      "end_col": 16,
+      "end_line": 15,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 15
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "failed"
+    "name": "failed",
+    "source": {
+      "end_col": 10,
+      "end_line": 10,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 10
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "ignore_attribute"
+    "name": "ignore_attribute",
+    "source": {
+      "end_col": 20,
+      "end_line": 49,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 49
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "ignore_attribute_reason"
+    "name": "ignore_attribute_reason",
+    "source": {
+      "end_col": 27,
+      "end_line": 55,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 55
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "ignore_failed"
+    "name": "ignore_failed",
+    "source": {
+      "end_col": 17,
+      "end_line": 24,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 24
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "ignore_passed"
+    "name": "ignore_passed",
+    "source": {
+      "end_col": 17,
+      "end_line": 30,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 30
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "later_ignore_failed"
+    "name": "later_ignore_failed",
+    "source": {
+      "end_col": 23,
+      "end_line": 36,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 36
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "later_ignore_passed"
+    "name": "later_ignore_passed",
+    "source": {
+      "end_col": 23,
+      "end_line": 42,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 42
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "later_passed"
+    "name": "later_passed",
+    "source": {
+      "end_col": 16,
+      "end_line": 20,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 20
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "passed"
+    "name": "passed",
+    "source": {
+      "end_col": 10,
+      "end_line": 6,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 6
+    }
   },
   {
     "elapsed_s": "[..]",
@@ -1007,58 +1084,135 @@ fn json_list() {
     "elapsed_s": "[..]",
     "event": "discover_case",
     "name": "cfg_in",
-    "selected": false
+    "selected": false,
+    "source": {
+      "end_col": 10,
+      "end_line": 61,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 61
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
     "name": "custom_error",
-    "selected": false
+    "selected": false,
+    "source": {
+      "end_col": 16,
+      "end_line": 15,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 15
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "failed"
+    "name": "failed",
+    "source": {
+      "end_col": 10,
+      "end_line": 10,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 10
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "ignore_attribute"
+    "name": "ignore_attribute",
+    "source": {
+      "end_col": 20,
+      "end_line": 49,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 49
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "ignore_attribute_reason"
+    "name": "ignore_attribute_reason",
+    "source": {
+      "end_col": 27,
+      "end_line": 55,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 55
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "ignore_failed"
+    "name": "ignore_failed",
+    "source": {
+      "end_col": 17,
+      "end_line": 24,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 24
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "ignore_passed"
+    "name": "ignore_passed",
+    "source": {
+      "end_col": 17,
+      "end_line": 30,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 30
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "later_ignore_failed"
+    "name": "later_ignore_failed",
+    "source": {
+      "end_col": 23,
+      "end_line": 36,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 36
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "later_ignore_passed"
+    "name": "later_ignore_passed",
+    "source": {
+      "end_col": 23,
+      "end_line": 42,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 42
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "later_passed"
+    "name": "later_passed",
+    "source": {
+      "end_col": 16,
+      "end_line": 20,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 20
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "passed"
+    "name": "passed",
+    "source": {
+      "end_col": 10,
+      "end_line": 6,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 6
+    }
   },
   {
     "elapsed_s": "[..]",
@@ -1086,58 +1240,135 @@ fn json_filter() {
     "elapsed_s": "[..]",
     "event": "discover_case",
     "name": "cfg_in",
-    "selected": false
+    "selected": false,
+    "source": {
+      "end_col": 10,
+      "end_line": 61,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 61
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
     "name": "custom_error",
-    "selected": false
+    "selected": false,
+    "source": {
+      "end_col": 16,
+      "end_line": 15,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 15
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "failed"
+    "name": "failed",
+    "source": {
+      "end_col": 10,
+      "end_line": 10,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 10
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "ignore_attribute"
+    "name": "ignore_attribute",
+    "source": {
+      "end_col": 20,
+      "end_line": 49,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 49
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "ignore_attribute_reason"
+    "name": "ignore_attribute_reason",
+    "source": {
+      "end_col": 27,
+      "end_line": 55,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 55
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "ignore_failed"
+    "name": "ignore_failed",
+    "source": {
+      "end_col": 17,
+      "end_line": 24,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 24
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "ignore_passed"
+    "name": "ignore_passed",
+    "source": {
+      "end_col": 17,
+      "end_line": 30,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 30
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "later_ignore_failed"
+    "name": "later_ignore_failed",
+    "source": {
+      "end_col": 23,
+      "end_line": 36,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 36
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "later_ignore_passed"
+    "name": "later_ignore_passed",
+    "source": {
+      "end_col": 23,
+      "end_line": 42,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 42
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "later_passed"
+    "name": "later_passed",
+    "source": {
+      "end_col": 16,
+      "end_line": 20,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 20
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "passed"
+    "name": "passed",
+    "source": {
+      "end_col": 10,
+      "end_line": 6,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 6
+    }
   },
   {
     "elapsed_s": "[..]",
@@ -1315,58 +1546,135 @@ fn json_filter() {
     "elapsed_s": "[..]",
     "event": "discover_case",
     "name": "custom_error",
-    "selected": false
+    "selected": false,
+    "source": {
+      "end_col": 16,
+      "end_line": 15,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 15
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
     "name": "cfg_in",
-    "selected": false
+    "selected": false,
+    "source": {
+      "end_col": 10,
+      "end_line": 61,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 61
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "failed"
+    "name": "failed",
+    "source": {
+      "end_col": 10,
+      "end_line": 10,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 10
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "ignore_attribute"
+    "name": "ignore_attribute",
+    "source": {
+      "end_col": 20,
+      "end_line": 49,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 49
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "ignore_attribute_reason"
+    "name": "ignore_attribute_reason",
+    "source": {
+      "end_col": 27,
+      "end_line": 55,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 55
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "ignore_failed"
+    "name": "ignore_failed",
+    "source": {
+      "end_col": 17,
+      "end_line": 24,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 24
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "ignore_passed"
+    "name": "ignore_passed",
+    "source": {
+      "end_col": 17,
+      "end_line": 30,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 30
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "later_ignore_failed"
+    "name": "later_ignore_failed",
+    "source": {
+      "end_col": 23,
+      "end_line": 36,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 36
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "later_ignore_passed"
+    "name": "later_ignore_passed",
+    "source": {
+      "end_col": 23,
+      "end_line": 42,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 42
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "later_passed"
+    "name": "later_passed",
+    "source": {
+      "end_col": 16,
+      "end_line": 20,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 20
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "passed"
+    "name": "passed",
+    "source": {
+      "end_col": 10,
+      "end_line": 6,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 6
+    }
   },
   {
     "elapsed_s": "[..]",
@@ -1528,57 +1836,134 @@ fn json_fail_fast() {
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "cfg_in"
+    "name": "cfg_in",
+    "source": {
+      "end_col": 10,
+      "end_line": 61,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 61
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "custom_error"
+    "name": "custom_error",
+    "source": {
+      "end_col": 16,
+      "end_line": 15,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 15
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "failed"
+    "name": "failed",
+    "source": {
+      "end_col": 10,
+      "end_line": 10,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 10
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "ignore_attribute"
+    "name": "ignore_attribute",
+    "source": {
+      "end_col": 20,
+      "end_line": 49,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 49
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "ignore_attribute_reason"
+    "name": "ignore_attribute_reason",
+    "source": {
+      "end_col": 27,
+      "end_line": 55,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 55
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "ignore_failed"
+    "name": "ignore_failed",
+    "source": {
+      "end_col": 17,
+      "end_line": 24,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 24
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "ignore_passed"
+    "name": "ignore_passed",
+    "source": {
+      "end_col": 17,
+      "end_line": 30,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 30
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "later_ignore_failed"
+    "name": "later_ignore_failed",
+    "source": {
+      "end_col": 23,
+      "end_line": 36,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 36
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "later_ignore_passed"
+    "name": "later_ignore_passed",
+    "source": {
+      "end_col": 23,
+      "end_line": 42,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 42
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "later_passed"
+    "name": "later_passed",
+    "source": {
+      "end_col": 16,
+      "end_line": 20,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 20
+    }
   },
   {
     "elapsed_s": "[..]",
     "event": "discover_case",
-    "name": "passed"
+    "name": "passed",
+    "source": {
+      "end_col": 10,
+      "end_line": 6,
+      "path": "test.rs",
+      "start_col": 4,
+      "start_line": 6
+    }
   },
   {
     "elapsed_s": "[..]",

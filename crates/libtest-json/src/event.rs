@@ -127,6 +127,11 @@ pub struct DiscoverCase {
     pub name: String,
     #[cfg_attr(
         feature = "serde",
+        serde(default, skip_serializing_if = "Option::is_none")
+    )]
+    pub source: Option<Source>,
+    #[cfg_attr(
+        feature = "serde",
         serde(default, skip_serializing_if = "RunMode::is_default")
     )]
     pub mode: RunMode,
@@ -160,6 +165,33 @@ impl DiscoverCase {
         buffer.keyval_sep().unwrap();
         buffer.value(&self.name).unwrap();
 
+        if let Some(source) = &self.source {
+            buffer.val_sep().unwrap();
+            buffer.key("source").unwrap();
+            buffer.keyval_sep().unwrap();
+            buffer.open_object().unwrap();
+
+            buffer.key("path").unwrap();
+            buffer.keyval_sep().unwrap();
+            buffer.value(&source.path).unwrap();
+
+            if let Some(lines) = &source.lines {
+                for (key, value) in [
+                    ("start_line", lines.start_line),
+                    ("start_col", lines.start_col),
+                    ("end_line", lines.end_line),
+                    ("end_col", lines.end_col),
+                ] {
+                    buffer.val_sep().unwrap();
+                    buffer.key(key).unwrap();
+                    buffer.keyval_sep().unwrap();
+                    buffer.value(value as u64).unwrap();
+                }
+            }
+
+            buffer.close_object().unwrap();
+        }
+
         if !self.mode.is_default() {
             buffer.val_sep().unwrap();
             buffer.key("mode").unwrap();
@@ -185,6 +217,33 @@ impl DiscoverCase {
 
         buffer
     }
+}
+
+/// Where a case comes from
+#[derive(Clone, Debug)]
+#[cfg_attr(feature = "unstable-schema", derive(schemars::JsonSchema))]
+#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
+#[cfg_attr(feature = "serde", serde(rename_all = "snake_case"))]
+pub struct Source {
+    /// The file as reported by the compiler (`file!()`) or by the code that built the case
+    pub path: String,
+    #[cfg_attr(
+        feature = "serde",
+        serde(flatten, default, skip_serializing_if = "Option::is_none")
+    )]
+    pub lines: Option<LineSpan>,
+}
+
+/// 1-based, `end_col` exclusive, columns count characters
+#[derive(Clone, Debug)]
+#[cfg_attr(feature = "unstable-schema", derive(schemars::JsonSchema))]
+#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
+#[cfg_attr(feature = "serde", serde(rename_all = "snake_case"))]
+pub struct LineSpan {
+    pub start_line: usize,
+    pub start_col: usize,
+    pub end_line: usize,
+    pub end_col: usize,
 }
 
 #[derive(Clone, Debug)]

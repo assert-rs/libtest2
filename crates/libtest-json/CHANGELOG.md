@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 <!-- next-header -->
 ## [Unreleased] - ReleaseDate
 
+- Add `DiscoverCase::source`
+
 ## [0.0.2] - 2025-09-12
 
 - Make schema `snake_case`

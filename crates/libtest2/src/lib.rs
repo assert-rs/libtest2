@@ -61,6 +61,7 @@ pub mod _private {
     pub use distributed_list::DistributedList;
     pub use libtest2_harness::Source;
     pub use libtest2_harness::TestKind;
+    pub use libtest2_proc_macro::_source as source;
 
     pub use crate::_main_parse as main_parse;
     pub use crate::_parse_ignore as parse_ignore;
